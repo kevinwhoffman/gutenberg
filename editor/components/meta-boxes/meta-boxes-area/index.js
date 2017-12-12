@@ -4,6 +4,7 @@
 import { isEqual } from 'lodash';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
+import jQuery from 'jquery';
 
 /**
  * WordPress dependencies
@@ -89,9 +90,7 @@ class MetaBoxesArea extends Component {
 	}
 
 	getFormData() {
-		const data = new window.FormData( this.form );
-		const entries = Array.from( data.entries() );
-		return entries;
+		return jQuery( this.form ).serialize();
 	}
 
 	checkState() {
